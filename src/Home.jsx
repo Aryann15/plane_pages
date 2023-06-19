@@ -5,7 +5,11 @@ const Home = () => {
         {title: 'testing 2' , body: 'namaste world...',author: 'raj', id:2 },
         {title: 'testing 3' , body: 'hellooo...',author: 'singh', id:3 }
     ])
-   
+   const handleDelete = (id) =>{
+    const newBlogs = blogs.filter(blog => blog.id !== id );
+    setBlogs (newBlogs);
+   }
+
   return (
     <div>
         <h1>Homepage</h1>
@@ -13,6 +17,7 @@ const Home = () => {
             <div className="blog-preview" key ={blog.id}>
                 <h2>{blog.title}</h2>
                 <p>Written by {blog.authoor} </p>
+            <button onClick={() => handleDelete(blog.id)}>Delete</button>
             </div>
         ))}
     </div>
