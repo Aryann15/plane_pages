@@ -1,21 +1,19 @@
-const express = require('express')
+const express = require("express");
 
-const router= express.Router()
+const router = express.Router();
+const {
+  getBlog,
+  setBlog,
+  updateBlog,
+  deleteBlog,
+} = require("../controlllers/controller");
 
-router.get('/',(req,res) => {
-    res.status(200).send("get")
-})
+router.get("/", getBlog);
 
-router.post('/',(req,res) => {
-    res.status(200).send("set")
-})
+router.post("/", setBlog);
 
-router.put('/:id',(req,res) => {
-    res.status(200).send(`update ${req.params.id}`)
-})
+router.put("/:id", updateBlog);
 
-router.delete('/:id',(req,res) => {
-    res.status(200).send(`delete ${req.params.id}`)
-})
+router.delete("/:id", deleteBlog);
 
-module.exports = router
+module.exports = router;
